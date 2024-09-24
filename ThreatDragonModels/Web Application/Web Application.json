@@ -10,17 +10,8 @@
     "contributors": [],
     "diagrams": [
       {
-        "id": 0,
-        "title": "New STRIDE diagram",
-        "diagramType": "STRIDE",
-        "placeholder": "New STRIDE diagram description",
-        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.2.0",
-        "cells": []
-      },
-      {
-        "id": 1,
-        "title": "New STRIDE 2",
+        "id": 2,
+        "title": "STRIDE diagram Web vulns",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -28,8 +19,8 @@
         "cells": []
       }
     ],
-    "diagramTop": 2,
+    "diagramTop": 3,
     "reviewer": "My Users",
-    "threatTop": 0
+    "threatTop": 1
   }
 }
