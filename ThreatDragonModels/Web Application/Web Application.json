@@ -16,12 +16,349 @@
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "version": "2.2.0",
-        "cells": [],
+        "cells": [
+          {
+            "position": {
+              "x": -108810,
+              "y": 1860
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Attacker"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "35251ab7-24e7-40fb-9f1c-863a9a2327b2",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Attacker",
+              "description": "Атакующий",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": -108560,
+              "y": 1845
+            },
+            "size": {
+              "width": 150,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "WebServer"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "84c5352a-681f-4e0e-b870-ab857ce5f07a",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Process",
+              "name": "WebServer",
+              "description": "Сайт, на котором есть форма запроса к БД",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": true,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": -108304,
+              "y": 1860
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Base"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "id": "9e3ecfb9-58ea-45d0-bd78-260bb2c57a35",
+            "zIndex": 3,
+            "data": {
+              "type": "tm.Store",
+              "name": "Base",
+              "description": "База данных",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": true,
+              "threats": []
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "SQL Injection",
+              "description": "Команда, содержащая инъекцию",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "ee4c550c-fbcf-4e02-8329-058b468e0ff1",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Уязвимость веб-безопасности, которая позволяет злоумышленнику вмешиваться в запросы, которые приложение делает к своей базе данных",
+                  "mitigation": "Использование ORM систем, подключение WAF",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "id": "24839abe-fb08-4d30-b86c-da0a1a70f2d8",
+            "source": {
+              "cell": "35251ab7-24e7-40fb-9f1c-863a9a2327b2"
+            },
+            "target": {
+              "cell": "84c5352a-681f-4e0e-b870-ab857ce5f07a"
+            },
+            "vertices": [
+              {
+                "x": -108620,
+                "y": 1820
+              },
+              {
+                "x": -108600,
+                "y": 1800
+              },
+              {
+                "x": -108560,
+                "y": 1820
+              }
+            ],
+            "labels": [
+              "SQL Injection"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Request",
+              "description": "Запрос к серверу, который содержит запрос данных через инъекцию",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "4b620741-b423-4012-9453-b8111422d424",
+            "source": {
+              "cell": "84c5352a-681f-4e0e-b870-ab857ce5f07a"
+            },
+            "target": {
+              "cell": "9e3ecfb9-58ea-45d0-bd78-260bb2c57a35"
+            },
+            "vertices": [
+              {
+                "x": -108370,
+                "y": 1870
+              },
+              {
+                "x": -108320,
+                "y": 1870
+              }
+            ],
+            "labels": [
+              "Request"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Responce",
+              "description": "Ответ от сервера, который содержит выгрузку из БД",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "9bbfd375-33b4-4a97-9e40-ea0c4574257e",
+            "source": {
+              "cell": "9e3ecfb9-58ea-45d0-bd78-260bb2c57a35"
+            },
+            "target": {
+              "cell": "84c5352a-681f-4e0e-b870-ab857ce5f07a"
+            },
+            "vertices": [
+              {
+                "x": -108370,
+                "y": 1940
+              }
+            ],
+            "labels": [
+              "Responce"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Responce with Inj",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "7df80a12-3784-4661-bce6-da38a7c25a57",
+            "source": {
+              "cell": "84c5352a-681f-4e0e-b870-ab857ce5f07a"
+            },
+            "target": {
+              "cell": "35251ab7-24e7-40fb-9f1c-863a9a2327b2"
+            },
+            "labels": [
+              "Responce with Inj"
+            ],
+            "vertices": [
+              {
+                "x": -108620,
+                "y": 1960
+              }
+            ]
+          }
+        ],
         "description": ""
       }
     ],
     "diagramTop": 4,
     "reviewer": "My Users",
-    "threatTop": 1
+    "threatTop": 2
   }
 }
