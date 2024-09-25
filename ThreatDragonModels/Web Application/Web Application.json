@@ -358,7 +358,7 @@
       },
       {
         "id": 4,
-        "title": "New STRIDE Insecure file upload",
+        "title": "STRIDE Insecure file upload",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
